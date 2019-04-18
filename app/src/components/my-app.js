@@ -53,7 +53,7 @@ class MyApp extends connect(store)(LitElement) {
 
           --app-drawer-width: 256px;
 
-          --app-primary-color: #E91E63;
+          --app-primary-color: #ED1E79;
           --app-secondary-color: #293237;
           --app-dark-text-color: var(--app-secondary-color);
           --app-light-text-color: white;
@@ -198,14 +198,16 @@ class MyApp extends connect(store)(LitElement) {
       <app-header condenses reveals effects="waterfall">
         <app-toolbar class="toolbar-top">
           <button class="menu-btn" title="Menu" @click="${this._menuButtonClicked}">${menuIcon}</button>
-          <div main-title>${this.appTitle}</div>
+          <div main-title>
+            <img style="height:50px;" src="/images/ciaLogo.png" />
+          </div>
         </app-toolbar>
 
         <!-- This gets hidden on a small screen-->
         <nav class="toolbar-list">
-          <a ?selected="${this._page === 'view1'}" href="/view1">View One</a>
-          <a ?selected="${this._page === 'view2'}" href="/view2">View Two</a>
-          <a ?selected="${this._page === 'view3'}" href="/view3">View Three</a>
+          <a ?selected="${this._page === 'view1'}" href="/view1">Home</a>
+          <a ?selected="${this._page === 'view2'}" href="/view2">Sobre Cia</a>
+          <a ?selected="${this._page === 'view3'}" href="/view3">Contato</a>
         </nav>
       </app-header>
 
@@ -214,9 +216,9 @@ class MyApp extends connect(store)(LitElement) {
           .opened="${this._drawerOpened}"
           @opened-changed="${this._drawerOpenedChanged}">
         <nav class="drawer-list">
-          <a ?selected="${this._page === 'view1'}" href="/view1">View One</a>
-          <a ?selected="${this._page === 'view2'}" href="/view2">View Two</a>
-          <a ?selected="${this._page === 'view3'}" href="/view3">View Three</a>
+          <a ?selected="${this._page === 'view1'}" href="/view1">Home</a>
+          <a ?selected="${this._page === 'view2'}" href="/view2">Sobre Cia</a>
+          <a ?selected="${this._page === 'view3'}" href="/view3">Contato</a>
         </nav>
       </app-drawer>
 

@@ -8,33 +8,102 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 */
 
-import { html } from 'lit-element';
+import { html, css } from 'lit-element';
 import { PageViewElement } from './page-view-element.js';
 
 // These are the shared styles needed by this element.
 import { SharedStyles } from './shared-styles.js';
+import '@polymer/paper-button/paper-button.js';
 
 class MyView1 extends PageViewElement {
   static get styles() {
     return [
-      SharedStyles
+      SharedStyles,
+      css`
+        #pageContainer {
+          padding-top:60px;
+          width:800px;
+          margin:0 auto;
+        }
+
+        paper-button {
+          background: var(--app-primary-color);
+          color:white;
+          font-size:12px;
+          padding-left:50px;
+          padding-right:50px;
+          padding-top:15px;
+          padding-bottom:15px;
+        }
+
+        .pointTitle {
+          font-weight:800;
+          font-family: 'Oswald', sans-serif;
+          font-size:50px;
+          text-align:right;
+          line-height:1.2;
+          flex:1;
+        }
+
+        .pointSummary {
+          flex:1;
+        }
+
+        .point {
+          display:flex;
+          flex-direction:row;
+          padding-top:30px;
+        }
+      `
     ];
   }
 
   render() {
     return html`
-      <section>
-        <h2>Static page</h2>
-        <p>This is a text-only page.</p>
-        <p>It doesn't do anything other than display some static text.</p>
-      </section>
-      <section>
-        <h2>Welcome</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac nisi orci. Maecenas sollicitudin diam in diam efficitur cursus. Morbi sollicitudin in justo tincidunt placerat. Integer tincidunt elementum nisi, eu ornare dolor lacinia eget. Fusce pulvinar massa eget odio placerat, commodo molestie ipsum tempus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse porttitor id purus eu cursus. Suspendisse arcu nulla, mattis vel hendrerit et, malesuada a elit. Nam at diam ornare, aliquet est sed, malesuada metus. Cras nec enim vel nibh tincidunt euismod ut et enim. Etiam pharetra eros in sodales iaculis. Duis sagittis urna et cursus mollis. Cras tempor rutrum est. Praesent sollicitudin ligula at laoreet placerat. Praesent tortor dui, semper in sapien non, pharetra luctus turpis.</p>
-      </section>
-      <section>
-        <p>Vestibulum at est ex. Aenean id ligula id nibh dictum laoreet. Etiam non semper erat. Pellentesque eu justo rhoncus diam vulputate facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam feugiat metus ex, vel fringilla massa tincidunt sit amet. Nunc facilisis bibendum tristique. Mauris commodo, dolor vitae dapibus fermentum, odio nibh viverra lorem, eu cursus diam turpis et sapien. Nunc suscipit tortor a ligula tincidunt, id hendrerit tellus sollicitudin.</p>
-      </section>
+      <div id="pageContainer">
+        <div class="block" style="display:flex; flex-direction:row;">
+          <div style="flex:1; padding-top:30px;">
+            <div style="font-weight:800; font-family: 'Oswald', sans-serif; font-size:48px;">PROFESSORES</div>
+            <div style="line-height:1; font-weight:800; font-family: 'Oswald', sans-serif; font-size:94px;">NATIVOS</div>
+            <div style="font-size:14px;padding-top:20px;padding-bottom:20px;">
+              Ingles Autentico que Muda a Vida<br />Aulas Particulares com Professores Nativos
+            </div>
+            <div>
+              <paper-button>Aula Gratuita</paper-button>
+            </div>
+
+          </div>
+          <div style="flex:1; text-align:right;">
+            <img style="width:350px;" src="/images/heroImage.png" />
+          </div>
+        </div>
+
+        <div id="pointList">
+          <div class="point">
+            <div class="pointTitle">
+              AULAS<br />PRESENCIAIS
+            </div>
+            <div class="pointSummary">
+              Só você e seu professor nativo.<br />
+Suas aulas são moldadas para você.<br />
+Pare de sentir travado quando fala e aprenda inglês mais rápido.
+            </div>
+          </div>
+          <div class="point">
+            <div class="pointTitle">
+              AULAS<br />
+              ONLINE
+            </div>
+            <div class="pointSummary"></div>
+          </div>
+          <div class="point">
+            <div class="pointTitle">
+              AULAS<br />IN-COMPANY
+            </div>
+            <div class="pointSummary"></div>
+          </div>
+        </div>
+      </div>
     `;
   }
 }
