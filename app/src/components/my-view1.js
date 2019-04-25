@@ -74,7 +74,7 @@ class MyView1 extends PageViewElement {
 
           </div>
           <div style="flex:1; text-align:right;">
-            <img style="width:350px;" src="/images/heroImage.png" />
+            <img style="width:350px;" src="images/heroImage.png" />
           </div>
         </div>
 

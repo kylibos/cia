@@ -199,7 +199,7 @@ class MyApp extends connect(store)(LitElement) {
         <app-toolbar class="toolbar-top">
           <button class="menu-btn" title="Menu" @click="${this._menuButtonClicked}">${menuIcon}</button>
           <div main-title>
-            <img style="height:50px;" src="/images/ciaLogo.png" />
+            <img style="height:50px;" src="images/ciaLogo.png" />
           </div>
         </app-toolbar>
 
